@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import ColorDetails from "../uploadColorDetails";
 
 export default function UploadsPage() {
   const [nextStep, setNextStep] = useState(false);
@@ -22,11 +23,11 @@ export default function UploadsPage() {
     //   allimages: [],
     // },
   ]);
-  const [sSize, setSSize] = useState(0);
-  const [mSize, setMSize] = useState(0);
-  const [lSize, setLSize] = useState(0);
-  const [xlSize, setXlSize] = useState(0);
-  const [xxlSize, setXxlSize] = useState(0);
+  // const [sSize, setSSize] = useState(0);
+  // const [mSize, setMSize] = useState(0);
+  // const [lSize, setLSize] = useState(0);
+  // const [xlSize, setXlSize] = useState(0);
+  // const [xxlSize, setXxlSize] = useState(0);
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
@@ -157,15 +158,16 @@ export default function UploadsPage() {
                       <br></br>
                       <label>Enter sizes :</label>
                       <ul>
-                        <li style={{ marginBottom: "10px" }}>
+                      <ColorDetails color={color}/>
+                        {/* <li style={{ marginBottom: "10px" }}>
                           <label style={{ marginRight: "10px" }}>S :</label>
-                          <button onClick={() => {color.sizeInStock.s--;}}>-</button>
+                          <button onClick={() => {color.sizeInStock.s--;setSSize(sSize -1)}}>-</button>
                           <span
                             style={{ marginLeft: "5px", marginRight: "5px" }}
                           >
-                            {color.sizeInStock.s}
+                            {sSize}
                           </span>
-                          <button onClick={() => {color.sizeInStock.s++;}}>+</button>
+                          <button onClick={() => {color.sizeInStock.s++;setSSize(sSize +1)}}>+</button>
                         </li>
                         <li style={{ marginBottom: "10px" }}>
                           <label style={{ marginRight: "10px" }}>M :</label>
@@ -214,12 +216,12 @@ export default function UploadsPage() {
                           <button onClick={() => {color.sizeInStock.xxl++;}}>
                             +
                           </button>
-                        </li>
+                        </li> */}
                       </ul>
-                      <label>Upload {color.colorName} Images</label>
+                      {/* <label>Upload {color.colorName} Images</label>
                       <br></br>
                       <input type="file" onChange={onInputChange} required />
-                      <br></br>
+                      <br></br> */}
                     </div>
                     <div>
                       {colorImages.length === 0
