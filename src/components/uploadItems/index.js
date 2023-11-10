@@ -5,29 +5,11 @@ import ColorDetails from "../uploadColorDetails";
 
 export default function UploadsPage() {
   const [nextStep, setNextStep] = useState(false);
-  const [colorImages, setColorImages] = useState([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [colorName, setColorName] = useState("");
   const [colors, setColors] = useState([]);
-  const [colorList, setColorList] = useState([
-    // {
-    //   colorName: "",
-    //   sizeInStock: {
-    //     s: 0,
-    //     m: 0,
-    //     l: 0,
-    //     xl: 0,
-    //     xxl: 0,
-    //   },
-    //   allimages: [],
-    // },
-  ]);
-  // const [sSize, setSSize] = useState(0);
-  // const [mSize, setMSize] = useState(0);
-  // const [lSize, setLSize] = useState(0);
-  // const [xlSize, setXlSize] = useState(0);
-  // const [xxlSize, setXxlSize] = useState(0);
+  const [colorList, setColorList] = useState([]);
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
@@ -71,12 +53,7 @@ export default function UploadsPage() {
     }
   };
 
-  const onInputChange = (e) => {
-    console.log(e.target.files[0]);
-    setColorImages((prev) => [...prev, e.target.files[0]]);
-  };
-
-  useEffect(() => {}, [colors,colorList]);
+  useEffect(() => {}, [colors, colorList]);
 
   return (
     <>
@@ -157,98 +134,20 @@ export default function UploadsPage() {
                       <label>{color.colorName}</label>
                       <br></br>
                       <label>Enter sizes :</label>
-                      <ul>
-                      <ColorDetails color={color}/>
-                        {/* <li style={{ marginBottom: "10px" }}>
-                          <label style={{ marginRight: "10px" }}>S :</label>
-                          <button onClick={() => {color.sizeInStock.s--;setSSize(sSize -1)}}>-</button>
-                          <span
-                            style={{ marginLeft: "5px", marginRight: "5px" }}
-                          >
-                            {sSize}
-                          </span>
-                          <button onClick={() => {color.sizeInStock.s++;setSSize(sSize +1)}}>+</button>
-                        </li>
-                        <li style={{ marginBottom: "10px" }}>
-                          <label style={{ marginRight: "10px" }}>M :</label>
-                          <button onClick={() => {color.sizeInStock.m--;}}>-</button>
-                          <span
-                            style={{ marginLeft: "5px", marginRight: "5px" }}
-                          >
-                            {color.sizeInStock.m}
-                          </span>
-                          <button onClick={() => {color.sizeInStock.m++;}}>+</button>
-                        </li>
-                        <li style={{ marginBottom: "10px" }}>
-                          <label style={{ marginRight: "10px" }}>L :</label>
-                          <button onClick={() =>{color.sizeInStock.l--;}}>-</button>
-                          <span
-                            style={{ marginLeft: "5px", marginRight: "5px" }}
-                          >
-                            {color.sizeInStock.l}
-                          </span>
-                          <button onClick={() =>{color.sizeInStock.l++;}}>+</button>
-                        </li>
-                        <li style={{ marginBottom: "10px" }}>
-                          <label style={{ marginRight: "10px" }}>XL :</label>
-                          <button onClick={() => {color.sizeInStock.xl--;}}>
-                            -
-                          </button>
-                          <span
-                            style={{ marginLeft: "5px", marginRight: "5px" }}
-                          >
-                           {color.sizeInStock.xl}
-                          </span>
-                          <button onClick={() =>{color.sizeInStock.xl++;}}>
-                            +
-                          </button>
-                        </li>
-                        <li style={{ marginBottom: "10px" }}>
-                          <label style={{ marginRight: "10px" }}>XXL :</label>
-                          <button onClick={() => {color.sizeInStock.xxl--;}}>
-                            -
-                          </button>
-                          <span
-                            style={{ marginLeft: "5px", marginRight: "5px" }}
-                          >
-                           {color.sizeInStock.xxl}
-                          </span>
-                          <button onClick={() => {color.sizeInStock.xxl++;}}>
-                            +
-                          </button>
-                        </li> */}
-                      </ul>
-                      {/* <label>Upload {color.colorName} Images</label>
-                      <br></br>
-                      <input type="file" onChange={onInputChange} required />
-                      <br></br> */}
-                    </div>
-                    <div>
-                      {colorImages.length === 0
-                        ? ""
-                        : colorImages.map((image) => {
-                            return (
-                              <img
-                                src="pull1.jpg"
-                                style={{ height: "50px" }}
-                              ></img>
-                            );
-                          })}
+                      <ColorDetails color={color} />
                     </div>
                   </>
                 );
               })}
             </div>
-            {/* <div>
-            {colorImages.length === 0 ? "" : 
-              colorImages.map((image)=> {
-                console.log(image);
-                return(
-                  <img src="pull1.jpg"></img> 
-                )
-              })
-             }
-          </div> */}
+            <div
+              className="d-flex justify-content-center align-items-center"
+              style={{ marginTop: "30px" }}
+            >
+              <button onClick={() => console.log(colorList)}>
+                Submit Article
+              </button>
+            </div>
           </>
         )}
       </div>
