@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import ColorDetails from "../uploadColorDetails";
+import axios from "axios";
 
 export default function UploadsPage() {
   const [nextStep, setNextStep] = useState(false);
@@ -52,6 +53,23 @@ export default function UploadsPage() {
       });
     }
   };
+
+  const onSubmitArticle = async ()=> {
+    const finalArticle = {
+      title: title,
+      price: price,
+      color: colorList
+    };
+
+    console.log(finalArticle);
+
+    await axios.post("/api/uploads/addArticle",{article: finalArticle}).then(function (response) {
+      console.log(response.data.success);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   useEffect(() => {}, [colors, colorList]);
 
@@ -144,7 +162,7 @@ export default function UploadsPage() {
               className="d-flex justify-content-center align-items-center"
               style={{ marginTop: "30px" }}
             >
-              <button onClick={() => console.log(colorList)}>
+              <button onClick={onSubmitArticle}>
                 Submit Article
               </button>
             </div>

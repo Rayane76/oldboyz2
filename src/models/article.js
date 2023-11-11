@@ -4,7 +4,7 @@ const ArticleSchema = new mongoose.Schema(
   {
     title: String,
     price: Number,
-    mainImage: String,
+    //mainImage: String,
     color: [
       {
         colorName: String,

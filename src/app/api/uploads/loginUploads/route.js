@@ -1,5 +1,4 @@
 import connectToDB from "@/database";
-import { redirect } from 'next/navigation'
 import { NextResponse } from "next/server";
 import AdminAccount from "@/models/adminAccount";
 import { cookies } from 'next/headers'
