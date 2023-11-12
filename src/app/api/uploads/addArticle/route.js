@@ -1,5 +1,6 @@
 import connectToDB from "@/database";
 import { NextResponse } from "next/server";
+import ArticleDB from "@/models/article";
 
 export async function POST(req) {
     try {
